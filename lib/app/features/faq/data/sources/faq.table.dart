@@ -20,9 +20,11 @@ class FAQTable {
     answer = json[columnAnswer];
   }
 
-  static String create() =>
-      "CREATE TABLE $tableName (" +
-      "$columnId INTEGER PRIMARY KEY" +
-      "$columnQuestion TEXT NOT NULL" +
-      "$columnAnswer TEXT NOT NULL";
+  static String create() => '''
+      CREATE TABLE $tableName (
+        $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
+        $columnQuestion TEXT,
+        $columnAnswer TEXT
+      )
+      ''';
 }

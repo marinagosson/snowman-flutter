@@ -1,4 +1,4 @@
-import 'package:snowman/app/features/home/data/sources/faq.table.dart';
+import 'package:snowman/app/features/faq/data/sources/faq.table.dart';
 import 'package:snowman/common/sources/database.helper.dart';
 import 'package:sqflite/sqflite.dart';
 

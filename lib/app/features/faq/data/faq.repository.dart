@@ -1,6 +1,6 @@
-import 'package:snowman/app/features/home/data/sources/faq.dao.dart';
-import 'package:snowman/app/features/home/data/sources/faq.table.dart';
-import 'package:snowman/app/features/home/domain/faq.repository.dart';
+import 'package:snowman/app/features/faq/data/sources/faq.dao.dart';
+import 'package:snowman/app/features/faq/data/sources/faq.table.dart';
+import 'package:snowman/app/features/faq/domain/faq.repository.dart';
 
 class FAQRepository implements FAQRepositoryImp {
   FAQDao _faqDao = FAQDao();

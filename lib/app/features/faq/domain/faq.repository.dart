@@ -1,4 +1,4 @@
-import 'package:snowman/app/features/home/data/sources/faq.table.dart';
+import 'package:snowman/app/features/faq/data/sources/faq.table.dart';
 
 abstract class FAQRepositoryImp {
   Future<List<FAQTable>> allFAQ({String searchQuestion});

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:snowman/app/features/home/ui/home.viewmodel.dart';
-import 'package:snowman/app/features/home/ui/home.widget.dart';
+import 'package:snowman/app/features/faq/ui/faqs/faqs.viewmodel.dart';
+import 'package:snowman/app/features/faq/ui/faqs/faqs.widget.dart';
 import 'package:snowman/common/di/injector_provider.dart';
 import 'package:snowman/common/values/colors.dart' as colors;
 import 'package:snowman/common/widgets/text.dart';
 
-class HomePage extends StatefulWidget {
+class FAQsPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _FAQsPageState createState() => _FAQsPageState();
 }
 
-class _HomePageState extends State<HomePage> with HomeWidget {
-  final vm = inject<HomeViewModel>();
+class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
+  final vm = inject<FAQSViewModel>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,7 @@ class _HomePageState extends State<HomePage> with HomeWidget {
           color: colors.textAppBarCorlor,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: buildView(context, _scaffoldKey),
-        ),
-      ),
+      body: buildContainer(context, _scaffoldKey),
     ));
   }
 }
