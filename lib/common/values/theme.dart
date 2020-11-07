@@ -6,6 +6,8 @@ final ThemeData appTheme = ThemeData(
     accentColor: colors.accentColor,
     scaffoldBackgroundColor: colors.pageBackgroundColor,
     appBarTheme: AppBarTheme(
+        brightness: Brightness.light,
+        centerTitle: true,
         color: colors.appbarBackgroundColor,
         iconTheme: IconThemeData(color: colors.iconsAppbarColor)),
     buttonTheme: ButtonThemeData(

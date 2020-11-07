@@ -15,18 +15,19 @@ class _NewFAQPageState extends State<NewFAQPage> with NewFAQWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        centerTitle: true,
-        title: TextWidget(
-          text: "Nova Pergunta",
-          bold: true,
-          color: colors.textAppBarCorlor,
+    return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: TextWidget(
+            text: "Nova Pergunta",
+            bold: true,
+            color: colors.textAppBarCorlor,
+          ),
         ),
-      ),
-      body: SingleChildScrollView(child: buildContainer(context, _scaffoldKey)),
-    ));
+        key: _scaffoldKey,
+        body: SafeArea(
+          child: SingleChildScrollView(
+              child: buildContainer(context, _scaffoldKey)),
+        ));
   }
 }
