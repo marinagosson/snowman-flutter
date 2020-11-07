@@ -13,3 +13,5 @@ final Color buttonTextColor = Color(0xFF111899);
 
 final Color cardBackgroundColor = Color(0xFFFFFFFF);
 final Color pageBackgroundColor = Color(0xFFFFFFFF);
+
+final Color textAppBarCorlor = Color(0xFFFFFFFF);
