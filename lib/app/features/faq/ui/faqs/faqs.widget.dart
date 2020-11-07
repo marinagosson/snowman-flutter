@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:snowman/app/features/faq/ui/faqs/components/item_list.dart';
 import 'package:snowman/app/features/faq/ui/faqs/faqs.viewmodel.dart';
 import 'package:snowman/app/features/faq/ui/new-faq/newfaq.page.dart';
 import 'package:snowman/common/di/injector_provider.dart';
 import 'package:snowman/common/widgets/button.dart';
-import 'package:snowman/common/widgets/text.dart';
 
 class FAQsWidget {
   final vm = inject<FAQSViewModel>();
@@ -13,20 +13,16 @@ class FAQsWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+          separatorBuilder: (BuildContext context, int index) => Divider(
+            height: 12,
+            color: Colors.transparent,
+          ),
           padding: const EdgeInsets.all(12),
           itemBuilder: (ctx, index) {
-            return Card(
-              child: Column(
-                children: [
-                  TextWidget(
-                    text: "$index",
-                  )
-                ],
-              ),
-            );
+            return ItemList(vm.faqs[index], vm.setExpanded(index));
           },
-          itemCount: 10,
+          itemCount: vm.faqs.length,
         )),
         buildButton(context, key)
       ],
