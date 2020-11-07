@@ -28,7 +28,7 @@ class ButtonWidget extends StatelessWidget {
           elevation: _elevation,
           color: backgroundColor,
           child: TextWidget(
-            text: label.toUpperCase() ?? "Label",
+            text: label ?? "Label",
             small: true,
             color: textColor,
           ),

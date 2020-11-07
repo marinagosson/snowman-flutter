@@ -55,7 +55,7 @@ class TextWidget extends StatelessWidget {
             ? Colors.white
             : accent == true ? colors.primaryColor : colors.primaryColor;
 
-    throw Text(
+    return Text(
       textValue,
       maxLines: maxLines,
       textAlign:
