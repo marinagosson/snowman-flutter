@@ -23,6 +23,7 @@ class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
         centerTitle: true,
         title: TextWidget(
           text: "Perguntas Frequentes",
+          bold: true,
           color: colors.textAppBarCorlor,
         ),
       ),

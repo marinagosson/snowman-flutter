@@ -12,6 +12,10 @@ final Color buttonBackgroundDisableColor = Color(0xFF9899A4);
 final Color buttonTextColor = Color(0xFF111899);
 
 final Color cardBackgroundColor = Color(0xFFFFFFFF);
-final Color pageBackgroundColor = Color(0xFFFFFFFF);
+final Color pageBackgroundColor = Color(0xFFF1F1F1);
 
 final Color textAppBarCorlor = Color(0xFFFFFFFF);
+
+final Color labelInputColor = Color(0xFFA2A3AD);
+final Color borderInputColor = Color(0xFFD3D3D7);
+final Color textInputColor = Color(0xFF24253F);

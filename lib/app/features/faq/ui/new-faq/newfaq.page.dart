@@ -3,7 +3,6 @@ import 'package:snowman/app/features/faq/ui/new-faq/newfaq.viewmodel.dart';
 import 'package:snowman/app/features/faq/ui/new-faq/newfaq.widget.dart';
 import 'package:snowman/common/di/injector_provider.dart';
 import 'package:snowman/common/values/colors.dart' as colors;
-import 'package:snowman/common/widgets/button.dart';
 import 'package:snowman/common/widgets/text.dart';
 
 class NewFAQPage extends StatefulWidget {
@@ -22,7 +21,8 @@ class _NewFAQPageState extends State<NewFAQPage> with NewFAQWidget {
       appBar: AppBar(
         centerTitle: true,
         title: TextWidget(
-          text: "Nova FAQ",
+          text: "Nova Pergunta",
+          bold: true,
           color: colors.textAppBarCorlor,
         ),
       ),

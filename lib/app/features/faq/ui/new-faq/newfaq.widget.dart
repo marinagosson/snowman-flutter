@@ -11,17 +11,24 @@ class NewFAQWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Card(
-        elevation: 6,
+        elevation: 2,
         child: Column(
           children: [
             Container(
+              padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
                   InputWidget(
                     labelText: "Titulo da pergunta",
+                    autofocus: true,
+                  ),
+                  SizedBox(
+                    height: 12,
                   ),
                   InputWidget(
                     labelText: "Resposta da pergunta",
+                    multiline: true,
+                    maxLines: 4,
                   ),
                 ],
               ),

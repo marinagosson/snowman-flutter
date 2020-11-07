@@ -1,6 +1,6 @@
 // Margens
 final double margin = 16.0;
-final double fieldSpace = 8;
+final double fieldSpace = 10;
 
 // Fontes
 final double fontTextTitle = 22.0;
@@ -9,5 +9,5 @@ final double fontText = 16.0;
 final double fontTextSmall = 14.0;
 final double fontTextSmaller = 12.0;
 
-final double fontInputWidget = 14.0;
+final double fontInputWidget = 18.0;
 final double fontButton = 14.0;

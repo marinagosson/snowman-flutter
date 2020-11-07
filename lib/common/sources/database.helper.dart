@@ -2,7 +2,7 @@ import 'package:snowman/app/features/faq/data/sources/faq.table.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {
-  static final _databaseName = "SiziAppCM.db";
+  static final _databaseName = "SnowmanLabs.db";
   static final _databaseVersion = 1;
 
   static Database _database;
