@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:snowman/app/features/faq/ui/new-faq/newfaq.viewmodel.dart';
 import 'package:snowman/common/di/injector_provider.dart';
+import 'package:snowman/common/values/colors.dart';
 import 'package:snowman/common/widgets/button.dart';
 import 'package:snowman/common/widgets/input.dart';
+import 'package:snowman/common/widgets/text.dart';
 
 class NewFAQWidget {
   final vm = inject<NewFAQViewModel>();
@@ -11,11 +13,13 @@ class NewFAQWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Card(
+        margin: EdgeInsets.all(0),
         elevation: 2,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
                   InputWidget(
@@ -30,11 +34,76 @@ class NewFAQWidget {
                     multiline: true,
                     maxLines: 4,
                   ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  TextWidget(
+                    text: "Cor",
+                    align: TextAlign.center,
+                    color: labelInputColor,
+                    bold: true,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 45,
+                    child: StreamBuilder<int>(
+                        stream: vm.streamColor,
+                        builder: (context, snapshot) {
+                          final int currentColor =
+                              snapshot.hasData ? snapshot.data : null;
+                          return ListView.builder(
+                            shrinkWrap: true,
+                            itemBuilder: (ctx, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  onTap: () => vm.actionSetColor(index),
+                                  child: Container(
+                                    width: 35.0,
+                                    height: 35.0,
+                                    padding: const EdgeInsets.all(2.0),
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                            color: borderCircleColor)),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color:
+                                            Color(vm.colors.elementAt(index)),
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      child: currentColor != null &&
+                                              vm.colors.elementAt(index) ==
+                                                  currentColor
+                                          ? Icon(
+                                              Icons.check,
+                                              size: 15,
+                                              color: Colors.white,
+                                            )
+                                          : SizedBox.shrink(),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            itemCount: vm.colors.length,
+                            scrollDirection: Axis.horizontal,
+                          );
+                        }),
+                  )
                 ],
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             ButtonWidget(
               label: "Adicionar",
+              elevation: 0,
             )
           ],
         ),

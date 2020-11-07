@@ -8,11 +8,15 @@ class ButtonWidget extends StatelessWidget {
   final bool disabled;
   final bool transparent;
   final IconData icon;
-
-  final double _elevation = 3;
+  final double elevation;
 
   ButtonWidget(
-      {this.label, this.onPress, this.disabled, this.transparent, this.icon});
+      {this.label,
+      this.onPress,
+      this.disabled,
+      this.transparent,
+      this.icon,
+      this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +25,20 @@ class ButtonWidget extends StatelessWidget {
     Color backgroundColor = colors.buttonBackgroundColor;
     Color textColor = colors.buttonTextColor;
 
-    return Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: RaisedButton(
-          onPressed: action,
-          elevation: _elevation,
-          color: backgroundColor,
-          child: TextWidget(
-            text: label ?? "Label",
-            small: true,
-            color: textColor,
-          ),
-        ));
+    return Container(
+      height: 45,
+      child: RaisedButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        elevation: elevation == null ? 0 : elevation,
+        onPressed: action,
+        color: backgroundColor,
+        child: TextWidget(
+          text: label ?? "Label",
+          small: true,
+          bold: true,
+          color: textColor,
+        ),
+      ),
+    );
   }
 }

@@ -62,7 +62,7 @@ class _InputWidgetState extends State<InputWidget> {
           autofocus: widget.autofocus == null ? false : true,
           decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              contentPadding: EdgeInsets.all(16),
+              contentPadding: EdgeInsets.all(18),
               hintText: widget.value == null ? "Holder" : widget.value,
               labelText: widget.labelText == null
                   ? widget.placeholder
