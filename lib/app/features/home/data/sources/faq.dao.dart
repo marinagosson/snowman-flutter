@@ -1,5 +1,5 @@
-import 'package:snowman/app/data/sources/database.helper.dart';
-import 'package:snowman/app/data/sources/local/tables/faq.table.dart';
+import 'package:snowman/app/features/home/data/sources/faq.table.dart';
+import 'package:snowman/common/sources/database.helper.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FAQDao {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:snowman/core/values/dimens.dart' as dimens;
-import 'package:snowman/core/values/colors.dart' as colors;
+import 'package:snowman/common/values/dimens.dart' as dimens;
+import 'package:snowman/common/values/colors.dart' as colors;
 
 class TextWidget extends StatelessWidget {
   final String text;

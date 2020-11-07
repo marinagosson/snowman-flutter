@@ -1,4 +1,4 @@
-import 'package:snowman/core/values/theme.dart';
+import 'package:snowman/common/values/theme.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {

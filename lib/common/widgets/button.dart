@@ -1,5 +1,5 @@
-import 'package:snowman/app/ui/widgets/text.dart';
-import 'package:snowman/core/values/colors.dart' as colors;
+import 'package:snowman/common/widgets/text.dart';
+import 'package:snowman/common/values/colors.dart' as colors;
 import 'package:flutter/material.dart';
 
 class ButtonWidget extends StatelessWidget {
