@@ -13,17 +13,23 @@ class FAQsWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-            child: ListView.separated(
-          separatorBuilder: (BuildContext context, int index) => Divider(
-            height: 12,
-            color: Colors.transparent,
-          ),
-          padding: const EdgeInsets.all(12),
-          itemBuilder: (ctx, index) {
-            return ItemList(vm.faqs[index], vm.setExpanded(index));
-          },
-          itemCount: vm.faqs.length,
-        )),
+            child: StreamBuilder(
+                stream: vm.streamExpandedList,
+                builder: (context, snapshot) {
+                  return ListView.separated(
+                    separatorBuilder: (BuildContext context, int index) =>
+                        Divider(
+                      height: 12,
+                      color: Colors.transparent,
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    itemBuilder: (ctx, index) {
+                      return ItemList(
+                          vm.faqs[index], () => vm.setExpanded(index));
+                    },
+                    itemCount: vm.faqs.length,
+                  );
+                })),
         buildButton(context, key)
       ],
     );

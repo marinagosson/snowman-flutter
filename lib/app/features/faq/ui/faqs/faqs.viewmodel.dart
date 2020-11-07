@@ -37,8 +37,9 @@ class FAQSViewModel extends BaseViewModel {
   ];
 
   setExpanded(int index) {
+    final bool isCurrent = faqs.elementAt(index).isSelected;
     faqs.forEach((element) => element.isSelected = false);
-    faqs.elementAt(index).isSelected = true;
+    if (!isCurrent) faqs.elementAt(index).isSelected = true;
     streamExpandedList.add(faqs);
   }
 
