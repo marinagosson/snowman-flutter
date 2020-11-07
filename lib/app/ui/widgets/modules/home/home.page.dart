@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snowman/app/ui/widgets/modules/faq/home.widget.dart';
+import 'package:snowman/app/ui/widgets/modules/home/home.widget.dart';
 
 class HomePage extends StatefulWidget {
   @override

@@ -16,4 +16,14 @@ class FAQDao {
     object.id = await _database.insert(FAQTable.tableName, object.toJson());
     return object;
   }
+
+  Future<List<FAQTable>> queryAll({String searchQuestion}) async {
+    String sql = 'SELECT * FROM ${FAQTable.tableName}';
+
+    if (searchQuestion != null && searchQuestion.isNotEmpty)
+      sql += " WHERE ${FAQTable.columnQuestion} LIKE $searchQuestion";
+
+    List<Map<String, dynamic>> result = await _database.rawQuery(sql);
+    return result.map((e) => FAQTable.fromJson(e));
+  }
 }
