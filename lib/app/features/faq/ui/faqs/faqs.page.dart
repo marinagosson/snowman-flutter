@@ -17,7 +17,6 @@ class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      body: SafeArea(child: buildContainer(context, _scaffoldKey)),
       appBar: AppBar(
         actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
         centerTitle: true,
@@ -27,6 +26,7 @@ class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
           color: colors.textAppBarCorlor,
         ),
       ),
+      body: SafeArea(child: buildContainer(context, _scaffoldKey)),
     );
   }
 }

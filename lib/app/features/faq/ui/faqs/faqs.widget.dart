@@ -10,6 +10,7 @@ class FAQsWidget {
 
   Widget buildContainer(BuildContext context, GlobalKey<ScaffoldState> key) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
             child: ListView.builder(
@@ -34,8 +35,9 @@ class FAQsWidget {
 
   Widget buildButton(BuildContext context, GlobalKey<ScaffoldState> key) {
     return Container(
+      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20, top: 20),
       child: ButtonWidget(
-        label: "Adicionar",
+        label: "Adicionar Pergunta",
         onPress: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => NewFAQPage()));
