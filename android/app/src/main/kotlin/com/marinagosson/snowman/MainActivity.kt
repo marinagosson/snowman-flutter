@@ -1,4 +1,4 @@
-package com.example.SNOWMAN
+package com.marinagosson.snowman
 
 import io.flutter.embedding.android.FlutterActivity
 
