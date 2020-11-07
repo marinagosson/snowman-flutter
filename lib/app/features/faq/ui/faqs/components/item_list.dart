@@ -1,3 +1,4 @@
+import 'package:custom_rounded_rectangle_border/custom_rounded_rectangle_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:snowman/app/features/faq/domain/faq.dart';
@@ -12,80 +13,62 @@ class ItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: Color.fromARGB(30, 0, 0, 0),
-            blurRadius: 5,
-          ),
-        ], color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          left: BorderSide(width: 10, color: Color(faq.color))),
-                      color: Color(faq.color),
-                      borderRadius: new BorderRadius.only(
-                          topLeft: const Radius.circular(50.0),
-                          bottomLeft: const Radius.circular(50.0))),
-                ),
-                Positioned.fill(
-                  left: 4,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: new BorderRadius.only(
-                            topLeft: const Radius.circular(100.0),
-                            bottomLeft: const Radius.circular(100.0))),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              width: 12,
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12.0),
-                    child: Flexible(
-                        child: TextWidget(
-                      text: faq.question,
-                      color: textTitleItemListColor,
-                      bold: true,
-                    )),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  faq.isSelected
-                      ? Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: Flexible(
-                            child: TextWidget(
-                              text: faq.answer,
-                              color: textDescriptionItemListColor,
-                            ),
-                          ),
-                        )
-                      : SizedBox.shrink()
-                ],
+      child: Card(
+        child: Container(
+          decoration: ShapeDecoration(
+              shape: CustomRoundedRectangleBorder(
+                  leftSide: BorderSide(color: Color(faq.color), width: 2),
+                  topLeftCornerSide:
+                      BorderSide(color: Color(faq.color), width: 2),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(5),
+                      topLeft: Radius.circular(5)),
+                  bottomLeftCornerSide:
+                      BorderSide(color: Color(faq.color), width: 2))),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 12,
               ),
-            ),
-            SizedBox(width: 12),
-            Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Icon(faq.isSelected
-                    ? Icons.arrow_drop_up
-                    : Icons.arrow_drop_down))
-          ],
+              Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: TextWidget(
+                          text: faq.question,
+                          color: textTitleItemListColor,
+                          bold: true,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      faq.isSelected
+                          ? Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: TextWidget(
+                                text: faq.answer,
+                                color: textDescriptionItemListColor,
+                              ),
+                            )
+                          : SizedBox.shrink()
+                    ],
+                  )),
+              SizedBox(
+                width: 12,
+              ),
+              Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Icon(faq.isSelected
+                      ? Icons.arrow_drop_up
+                      : Icons.arrow_drop_down))
+            ],
+          ),
         ),
       ),
     );

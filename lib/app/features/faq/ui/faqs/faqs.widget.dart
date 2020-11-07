@@ -19,7 +19,7 @@ class FAQsWidget {
                   return ListView.separated(
                     separatorBuilder: (BuildContext context, int index) =>
                         Divider(
-                      height: 12,
+                      height: 8,
                       color: Colors.transparent,
                     ),
                     padding: const EdgeInsets.all(12),
