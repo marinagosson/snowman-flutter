@@ -129,7 +129,7 @@ class NewFAQWidget {
                                       )));
                                   vm.clear();
                                   await Future.delayed(Duration(seconds: 2));
-                                  Navigator.pop(context);
+                                  Navigator.pop(context, result);
                                 } else
                                   key.currentState.showSnackBar(SnackBar(
                                       content: TextWidget(

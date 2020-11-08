@@ -58,9 +58,10 @@ class FAQsWidget {
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20, top: 20),
       child: ButtonWidget(
         label: "Adicionar Pergunta",
-        onPress: () {
-          Navigator.push(
+        onPress: () async {
+          final result = await Navigator.push(
               context, MaterialPageRoute(builder: (context) => NewFAQPage()));
+          if (result != null && result) vm.getAllFAQs();
         },
       ),
     );
