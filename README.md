@@ -1,7 +1,38 @@
 Snowman Labs Challenge
 ===
 
-Projeto criado com a seguinte configuração:
+<br />
+<p align="center">
+  <a href="https://github.com/marinagosson/snowman-flutter">
+    <img src="entregaveis/Screenshot_20201107-195059.png" alt="Logo" width="300" height="600">
+  </a>
+
+</p>
+
+## User Stories
+
+* Como usuário quero visualizar a lista de perguntas/respostas (FAQ).
+* Como usuário quero clicar em uma pergunta e quero que a resposta seja exibida.
+* Como usuário quero poder pesquisar uma pergunta/resposta.
+* Como usuário quero poder criar uma nova pergunta/resposta.
+* Como usuário quero adicionar uma cor a minha pergunta/resposta.
+
+### DEMO
+
+[![Assistir demo](https://github.com/marinagosson/snowman-flutter/entregaveisScreenshot_20201107-195209.png)](https://github.com/marinagosson/snowman-flutter/entregaveis/demo.mp4)
+
+### O que o app traz:
+
+1. MVVM + Clean Architecture + Respository Pattern
+2. Get_It para injeção de dependencias
+3. RXDart para gerenciamento de estado
+4. SQFlite para trabalhar com SQLite
+5. Widgets personalizados
+6. Stetho para visualização do banco através do chrome inspect
+
+## Configuração do ambiente
+
+Projeto desenvolvido e criado utilizando o visual studio code. Para rodar o projeto, configure seu ambiente com as configurações abaixo. Para rodar o projeto basta utilizar o comando padrão do flutter: `flutter run`
 
 ```
 
@@ -39,12 +70,3 @@ Projeto criado com a seguinte configuração:
     • Android SDK built for x86 (mobile) • emulator-5554 • android-x86 • Android 10 (API 29) (emulator)
 
 ```
-
-### O que o app traz:
-
-1. MVVM + Clean Architecture + Respository Pattern
-2. Get_It para injeção de dependencias
-3. RXDart para gerenciamento de estado
-4. SQFlite para trabalhar com SQLite
-5. Widgets personalizados
-6. Stetho para visualização do banco através do chrome inspect
