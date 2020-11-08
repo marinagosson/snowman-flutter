@@ -15,16 +15,16 @@ class FAQsWidget {
   Widget buildContainer(BuildContext context, GlobalKey<ScaffoldState> key) {
     return StreamBuilder<List<FAQ>>(
         stream: vm.streamListFAQs,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data.isNotEmpty) {
+        builder: (context, snap1) {
+          if (snap1.hasData) {
+            if (snap1.data.isNotEmpty) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
                       child: StreamBuilder(
                           stream: vm.streamExpandedList,
-                          builder: (context, snapshot) {
+                          builder: (context, snap2) {
                             return ListView.separated(
                               separatorBuilder:
                                   (BuildContext context, int index) => Divider(
@@ -33,27 +33,31 @@ class FAQsWidget {
                               ),
                               padding: const EdgeInsets.all(12),
                               itemBuilder: (ctx, index) {
-                                return ItemList(vm.faqs[index],
+                                return ItemList(snap1.data[index],
                                     () => vm.setExpanded(index));
                               },
-                              itemCount: vm.faqs.length,
+                              itemCount: snap1.data.length,
                             );
                           })),
                   buildButton(context, key)
                 ],
               );
             } else
-              return Center(
-                child: TextWidget(
-                  text: "Nenhuma pergunta encontrada",
-                ),
-              );
+              return buildEmptyState();
+          } else if (snap1.hasError) {
+            return buildEmptyState();
           } else
             return Center(
               child: CircularProgressIndicator(),
             );
         });
   }
+
+  buildEmptyState() => Center(
+        child: TextWidget(
+          text: "Nenhuma pergunta encontrada",
+        ),
+      );
 
   Widget buildButton(BuildContext context, GlobalKey<ScaffoldState> key) {
     return Container(
@@ -118,7 +122,7 @@ class FAQsWidget {
   void startSearch(BuildContext context) {
     ModalRoute.of(context)
         .addLocalHistoryEntry(LocalHistoryEntry(onRemove: vm.stopSearch()));
-    // vm.getStartedSearch();
+    vm.startedSearch();
   }
 
   StreamBuilder buildLeadingAppBar(BuildContext context) {

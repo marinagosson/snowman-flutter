@@ -18,8 +18,25 @@ class FAQSViewModel extends BaseViewModel {
   final streamListFAQs = PublishSubject<List<FAQ>>();
 
   List<FAQ> faqs = [];
+  List<FAQ> faqsFiltered = [];
 
-  setQuerySearch(String query) {}
+  setQuerySearch(String query) {
+    if (query.isNotEmpty) {
+      faqsFiltered = faqs.where((element) {
+        if (element.question.toLowerCase().contains(query.toLowerCase()))
+          return true;
+        return false;
+      }).toList();
+
+      if (faqsFiltered.isEmpty)
+        streamListFAQs.addError("Nenhuma pergunta encontrada");
+      else
+        streamListFAQs.add(faqsFiltered);
+    } else {
+      this.faqsFiltered = faqs;
+      streamListFAQs.add(faqsFiltered);
+    }
+  }
 
   startedSearch() {
     _toolbarSearch.add(true);
@@ -33,6 +50,7 @@ class FAQSViewModel extends BaseViewModel {
     setLoading(true);
     await Future.delayed(Duration(seconds: 2));
     faqs = await repository.allFAQ();
+    faqsFiltered = faqs;
     streamListFAQs.add(faqs);
     setLoading(false);
   }
