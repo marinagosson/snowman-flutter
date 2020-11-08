@@ -4,7 +4,7 @@ Snowman Labs Challenge
 <br />
 <p align="center">
   <a href="https://github.com/marinagosson/snowman-flutter">
-    <img src="entregaveis/Screenshot_20201107-195059.png" alt="Logo" width="300" height="600">
+    <img src="screenshots/Screenshot_20201107-195059.png" alt="Logo" width="300" height="600">
   </a>
 
 </p>
