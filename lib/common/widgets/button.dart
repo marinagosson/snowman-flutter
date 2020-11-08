@@ -33,7 +33,7 @@ class ButtonWidget extends StatelessWidget {
         color: backgroundColor,
         child: loading != null && loading
             ? CircularProgressIndicator(
-                backgroundColor: Colors.white,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               )
             : TextWidget(
                 text: label ?? "Label",
