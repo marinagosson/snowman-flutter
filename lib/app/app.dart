@@ -5,5 +5,7 @@ import 'package:flutter/material.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
-      debugShowCheckedModeBanner: false, theme: appTheme, home: FAQsPage());
+      debugShowCheckedModeBanner: false,
+      theme: appTheme(context),
+      home: FAQsPage());
 }

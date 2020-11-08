@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart' as colors;
 
-final ThemeData appTheme = ThemeData(
+ThemeData appTheme(context) => ThemeData(
     primaryColor: colors.primaryColor,
     accentColor: colors.accentColor,
     scaffoldBackgroundColor: colors.pageBackgroundColor,
+    textTheme: GoogleFonts.nunitoTextTheme(
+      Theme.of(context).textTheme,
+    ),
     appBarTheme: AppBarTheme(
         brightness: Brightness.dark,
         centerTitle: true,
