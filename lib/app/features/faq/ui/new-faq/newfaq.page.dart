@@ -21,7 +21,7 @@ class _NewFAQPageState extends State<NewFAQPage> with NewFAQWidget {
           title: TextWidget(
             text: "Nova Pergunta",
             bold: true,
-            color: colors.textAppBarCorlor,
+            color: colors.textAppBarColor,
           ),
         ),
         key: _scaffoldKey,

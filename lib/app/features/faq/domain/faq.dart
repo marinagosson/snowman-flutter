@@ -1,9 +1,9 @@
 class FAQ {
   int id;
-  final String question;
-  final String answer;
-  final int color;
+  String question;
+  String answer;
+  int color;
   bool isSelected;
 
-  FAQ(this.id, this.question, this.answer, this.color, this.isSelected);
+  FAQ(this.question, this.answer, this.color, {this.id, this.isSelected});
 }

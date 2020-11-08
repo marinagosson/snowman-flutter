@@ -12,7 +12,8 @@ class FAQDao {
   _getDbInstance() async => _database = await DatabaseHelper.getInstance();
 
   Future<FAQTable> insert(FAQTable object) async {
-    object.id = await _database.insert(FAQTable.tableName, object.toJson());
+    object.id =
+        await _database.insert(FAQTable.tableName, FAQTable.toMap(object));
     return object;
   }
 

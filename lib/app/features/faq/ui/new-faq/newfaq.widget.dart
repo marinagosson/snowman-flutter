@@ -23,8 +23,9 @@ class NewFAQWidget {
               child: Column(
                 children: [
                   InputWidget(
-                    labelText: "Titulo da pergunta",
+                    labelText: "Título da pergunta",
                     autofocus: true,
+                    onChange: (value) => vm.setQuestion(value),
                   ),
                   SizedBox(
                     height: 12,
@@ -33,6 +34,7 @@ class NewFAQWidget {
                     labelText: "Resposta da pergunta",
                     multiline: true,
                     maxLines: 4,
+                    onChange: (value) => vm.setAnswer(value),
                   ),
                   SizedBox(
                     height: 16,
@@ -60,7 +62,7 @@ class NewFAQWidget {
                                 padding: const EdgeInsets.all(5.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
-                                  onTap: () => vm.actionSetColor(index),
+                                  onTap: () => vm.setColor(index),
                                   child: Container(
                                     width: 35.0,
                                     height: 35.0,
@@ -101,10 +103,40 @@ class NewFAQWidget {
             SizedBox(
               height: 10,
             ),
-            ButtonWidget(
-              label: "Adicionar",
-              elevation: 0,
-            )
+            StreamBuilder<ButtonState>(
+                stream: vm.button,
+                builder: (context, snapshot) {
+                  final state =
+                      snapshot.hasData ? snapshot.data : ButtonState.disable;
+                  print('ButtonState: $state');
+                  return ButtonWidget(
+                    label: "Adicionar",
+                    elevation: 0,
+                    loading: state == ButtonState.loading,
+                    onPress: state == ButtonState.loading
+                        ? null
+                        : (state == ButtonState.disable
+                            ? null
+                            : () async {
+                                final result = await vm.save();
+                                if (result) {
+                                  key.currentState.showSnackBar(SnackBar(
+                                      backgroundColor: appbarBackgroundColor,
+                                      content: TextWidget(
+                                        text: 'Item salvo com sucesso',
+                                        bold: true,
+                                        color: Colors.white,
+                                      )));
+                                  vm.clear();
+                                  await Future.delayed(Duration(seconds: 2));
+                                  Navigator.pop(context);
+                                } else
+                                  key.currentState.showSnackBar(SnackBar(
+                                      content: TextWidget(
+                                          text: 'Ops, ocorreu um erro.')));
+                              }),
+                  );
+                })
           ],
         ),
       ),

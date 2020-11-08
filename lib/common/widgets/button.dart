@@ -9,6 +9,7 @@ class ButtonWidget extends StatelessWidget {
   final bool transparent;
   final IconData icon;
   final double elevation;
+  final bool loading;
 
   ButtonWidget(
       {this.label,
@@ -16,7 +17,8 @@ class ButtonWidget extends StatelessWidget {
       this.disabled,
       this.transparent,
       this.icon,
-      this.elevation});
+      this.elevation,
+      this.loading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +34,14 @@ class ButtonWidget extends StatelessWidget {
         elevation: elevation == null ? 0 : elevation,
         onPressed: action,
         color: backgroundColor,
-        child: TextWidget(
-          text: label ?? "Label",
-          small: true,
-          bold: true,
-          color: textColor,
-        ),
+        child: loading != null && loading
+            ? CircularProgressIndicator()
+            : TextWidget(
+                text: label ?? "Label",
+                small: true,
+                bold: true,
+                color: textColor,
+              ),
       ),
     );
   }

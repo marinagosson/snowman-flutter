@@ -18,7 +18,8 @@ class FAQRepository implements FAQRepositoryImp {
     List<FAQTable> list =
         await _faqDao.queryAll(searchQuestion: searchQuestion);
     return list
-        .map((e) => FAQ(e.id, e.question, e.answer, e.color, false))
+        .map((e) =>
+            FAQ(e.question, e.answer, e.color, id: e.id, isSelected: false))
         .toList();
   }
 }

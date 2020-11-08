@@ -10,7 +10,7 @@ class FAQTable {
   String answer;
   int color;
 
-  FAQTable(question, answer, color);
+  FAQTable(this.question, this.answer, this.color);
 
   Map toJson() => {
         columnId: id,

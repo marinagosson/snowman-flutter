@@ -30,7 +30,7 @@ class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
           title: TextWidget(
             text: "Perguntas Frequentes",
             bold: true,
-            color: colors.textAppBarCorlor,
+            color: colors.textAppBarColor,
           ),
         ),
         body: SafeArea(
