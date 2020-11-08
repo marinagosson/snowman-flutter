@@ -1,5 +1,5 @@
 class FAQ {
-  final int id;
+  int id;
   final String question;
   final String answer;
   final int color;

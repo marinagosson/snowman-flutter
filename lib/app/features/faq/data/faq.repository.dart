@@ -1,17 +1,24 @@
 import 'package:snowman/app/features/faq/data/sources/faq.dao.dart';
 import 'package:snowman/app/features/faq/data/sources/faq.table.dart';
+import 'package:snowman/app/features/faq/domain/faq.dart';
 import 'package:snowman/app/features/faq/domain/faq.repository.dart';
 
 class FAQRepository implements FAQRepositoryImp {
   FAQDao _faqDao = FAQDao();
 
   @override
-  Future<FAQTable> insert(FAQTable object) async {
-    return await _faqDao.insert(object);
+  Future<FAQ> insert(FAQ object) async {
+    FAQTable faqTable = await _faqDao
+        .insert(FAQTable(object.question, object.answer, object.color));
+    return object..id = faqTable.id;
   }
 
   @override
-  Future<List<FAQTable>> allFAQ({String searchQuestion}) async {
-    return await _faqDao.queryAll(searchQuestion: searchQuestion);
+  Future<List<FAQ>> allFAQ({String searchQuestion}) async {
+    List<FAQTable> list =
+        await _faqDao.queryAll(searchQuestion: searchQuestion);
+    return list
+        .map((e) => FAQ(e.id, e.question, e.answer, e.color, false))
+        .toList();
   }
 }

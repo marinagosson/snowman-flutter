@@ -6,11 +6,10 @@ class FAQDao {
   Database _database;
 
   FAQDao() {
-    _getDatabaseInstance();
+    _getDbInstance();
   }
 
-  void _getDatabaseInstance() async =>
-      _database = await DatabaseHelper.getInstance();
+  _getDbInstance() async => _database = await DatabaseHelper.getInstance();
 
   Future<FAQTable> insert(FAQTable object) async {
     object.id = await _database.insert(FAQTable.tableName, object.toJson());
@@ -24,6 +23,8 @@ class FAQDao {
       sql += " WHERE ${FAQTable.columnQuestion} LIKE $searchQuestion";
 
     List<Map<String, dynamic>> result = await _database.rawQuery(sql);
-    return result.map((e) => FAQTable.fromJson(e));
+    return result.map((e) => FAQTable.fromJson(e)).toList();
   }
+
+  Future close() async => _database.close();
 }
