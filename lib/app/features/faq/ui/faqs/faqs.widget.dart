@@ -5,7 +5,6 @@ import 'package:snowman/app/features/faq/ui/faqs/faqs.viewmodel.dart';
 import 'package:snowman/app/features/faq/ui/new-faq/newfaq.page.dart';
 import 'package:snowman/common/di/injector_provider.dart';
 import 'package:snowman/common/values/colors.dart' as colors;
-import 'package:snowman/common/values/colors.dart';
 import 'package:snowman/common/widgets/button.dart';
 import 'package:snowman/common/widgets/text.dart';
 
