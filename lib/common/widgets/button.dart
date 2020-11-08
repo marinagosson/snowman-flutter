@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class ButtonWidget extends StatelessWidget {
   final String label;
   final VoidCallback onPress;
-  final bool disabled;
   final bool transparent;
   final IconData icon;
   final double elevation;
@@ -14,7 +13,6 @@ class ButtonWidget extends StatelessWidget {
   ButtonWidget(
       {this.label,
       this.onPress,
-      this.disabled,
       this.transparent,
       this.icon,
       this.elevation,
@@ -22,20 +20,21 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final action = disabled == true ? null : onPress;
-
     Color backgroundColor = colors.buttonBackgroundColor;
-    Color textColor = colors.buttonTextColor;
+    Color textColor = onPress == null ? Colors.white : colors.buttonTextColor;
 
     return Container(
       height: 45,
       child: RaisedButton(
+        disabledColor: Colors.grey,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         elevation: elevation == null ? 0 : elevation,
-        onPressed: action,
+        onPressed: onPress,
         color: backgroundColor,
         child: loading != null && loading
-            ? CircularProgressIndicator()
+            ? CircularProgressIndicator(
+                backgroundColor: Colors.white,
+              )
             : TextWidget(
                 text: label ?? "Label",
                 small: true,

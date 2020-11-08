@@ -10,6 +10,7 @@ final Color iconsAppbarColor = Color(0xFFFFFFFF);
 final Color buttonBackgroundColor = Color(0xFFFFBE00);
 final Color buttonBackgroundDisableColor = Color(0xFF9899A4);
 final Color buttonTextColor = Color(0xFF111899);
+final Color buttonDisableTextColor = Color(0xFF9899A4);
 
 final Color cardBackgroundColor = Color(0xFFFFFFFF);
 final Color pageBackgroundColor = Color(0xFFF1F1F1);
