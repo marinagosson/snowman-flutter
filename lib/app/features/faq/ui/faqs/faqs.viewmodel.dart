@@ -44,6 +44,7 @@ class FAQSViewModel extends BaseViewModel {
 
   stopSearch() {
     _toolbarSearch.add(false);
+    searchQueryController.clear();
   }
 
   getAllFAQs() async {
