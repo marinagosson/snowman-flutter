@@ -19,7 +19,7 @@ Snowman Labs Challenge
 
 ### DEMO
 
-[https://github.com/marinagosson/snowman-flutter/screenshots/demo-preview.jpg](https://www.youtube.com/watch?v=BaZ5OJ2feAA&feature)
+[![Assistir demo](https://github.com/marinagosson/snowman-flutter/screenshots/demo-preview.jpg)](https://www.youtube.com/watch?v=BaZ5OJ2feAA&feature)
 
 ### O que o app traz:
 
