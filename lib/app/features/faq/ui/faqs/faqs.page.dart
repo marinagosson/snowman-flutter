@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:snowman/app/features/faq/ui/faqs/faqs.viewmodel.dart';
 import 'package:snowman/app/features/faq/ui/faqs/faqs.widget.dart';
 import 'package:snowman/common/di/injector_provider.dart';
-import 'package:snowman/common/values/colors.dart' as colors;
-import 'package:snowman/common/widgets/text.dart';
 
 class FAQsPage extends StatefulWidget {
   @override
@@ -25,13 +23,10 @@ class _FAQsPageState extends State<FAQsPage> with FAQsWidget {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
+          automaticallyImplyLeading: false,
+          actions: [buildActionsAppBar(context)],
+          title: buildTitleAppBar(context),
           centerTitle: true,
-          title: TextWidget(
-            text: "Perguntas Frequentes",
-            bold: true,
-            color: colors.textAppBarColor,
-          ),
         ),
         body: SafeArea(
           child: buildContainer(context, _scaffoldKey),

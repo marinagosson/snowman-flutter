@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:snowman/app/features/faq/data/faq.repository.dart';
 import 'package:snowman/app/features/faq/domain/faq.dart';
@@ -6,10 +9,25 @@ import 'package:snowman/common/base/base_viewmodel.dart';
 class FAQSViewModel extends BaseViewModel {
   FAQRepository repository = FAQRepository();
 
+  TextEditingController searchQueryController = TextEditingController();
+
+  final _toolbarSearch = StreamController.broadcast();
+  Stream get toolbarSearch => _toolbarSearch.stream;
+
   final streamExpandedList = PublishSubject();
   final streamListFAQs = PublishSubject<List<FAQ>>();
 
   List<FAQ> faqs = [];
+
+  setQuerySearch(String query) {}
+
+  startedSearch() {
+    _toolbarSearch.add(true);
+  }
+
+  stopSearch() {
+    _toolbarSearch.add(false);
+  }
 
   getAllFAQs() async {
     setLoading(true);
